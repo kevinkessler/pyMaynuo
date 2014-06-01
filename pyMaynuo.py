@@ -17,8 +17,6 @@
 
 """
 
-.. moduleauthor:: David Ogilvy <github@thortek.com.au>
-
 Driver for Maynuo Electronic DC Loads, for communication via the Modbus RTU protocol, utilizing the minimalmodbus python module.
 
 """
@@ -28,12 +26,6 @@ import minimalmodbus
 __author__  = "David Ogilvy"
 __email__   = "github@thortek.com.au"
 __license__ = "Apache License, Version 2.0"
-
-__revision__  = "$Rev: 1 $"
-__date__      = "$Date: 2014-06-02 01:37:30 +0800 (Mon, 2 June 2014) $"
-
-
-
 
 class MaynuoDCLoad( minimalmodbus.Instrument ):
     """Instrument class for Maynuo DC Loads. 
@@ -49,6 +41,8 @@ class MaynuoDCLoad( minimalmodbus.Instrument ):
     ==================  ====================
     Description         Modbus function code
     ==================  ====================
+    Read Coils          1
+    Write Coils         5
     Read registers      3
     Write registers     16
     ==================  ====================
@@ -197,4 +191,7 @@ class MaynuoDCLoad( minimalmodbus.Instrument ):
     	"""Reads the set Constant Current value"""
     	return self.write_float(0x0A01, value)	
     
+    #remaining functions TBC
+
+
     	
