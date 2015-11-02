@@ -69,6 +69,14 @@ class MaynuoDCLoad( minimalmodbus.Instrument ):
 ## Status and Function Coils ##
 ###############################
 
+    def on(self):
+        """Turns on Inputs """
+        return self.write_registers(0x0A00, [42])
+
+    def off(self):
+        """Turns off Inputs"""
+        return self.write_registers(0x0A00, [43])
+
     def getPC1(self):
     	"""Returns status of Remote Control mode"""
     	return self.read_bit(1280, 1)
