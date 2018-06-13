@@ -220,3 +220,39 @@ class MaynuoDCLoad(minimalmodbus.Instrument):
     """ Enable Battery Test """
     def enableBatteryTest(self):
         return self.write_registers(0x0A00, [38])
+
+    def enableConstantCurrent(self):
+        return self.write_registers(0x0A00, [1])
+
+    def enableConstantVoltage(self):
+        return self.write_registers(0x0A00, [2])
+
+    def enableConstantPower(self):
+        return self.write_registers(0x0A00, [3])
+
+    def enableConstantResistance(self):
+        return self.write_registers(0x0A00, [4])
+
+    def getConstantVoltage(self):
+        """Reads the set Constant Voltage value"""
+        return self.read_float(0x0A03)
+
+    def setConstantVoltage(self, value):
+        """Sets Constant Voltage value"""
+        return self.write_float(0x0A03, value)
+
+    def getConstantPower(self):
+        """Reads the set Constant Power value"""
+        return self.read_float(0x0A05)
+
+    def setConstantPower(self, value):
+        """Sets Constant Power value"""
+        return self.write_float(0x0A05, value)
+
+    def getConstantResistance(self):
+        """Reads the set Constant Resistance value"""
+        return self.read_float(0x0A07)
+
+    def setConstantResistance(self, value):
+        """Sets Constant Resistance value"""
+        return self.write_float(0x0A07, value)
